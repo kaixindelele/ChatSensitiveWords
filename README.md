@@ -9,6 +9,7 @@
 # 方案：
 1. 传统敏感词库检测是否有敏感词
 2. 如果有敏感词，让Chat来判断语义，是否有误杀。
+3. 输出敏感词检测（待做）
 
 # 使用步骤：
 1. pip install -r requirements.txt
@@ -16,9 +17,13 @@
 3. 确认敏感词库路径是否正确。
 
 # 初步效果：
-![1688477764180](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/39f7ecf8-124f-4dd8-a751-9669ab2811b1)
+![GO5YV8RZ$$FOQ) 4 CEBHKG](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/1a05c2a1-8572-4744-aa12-6098bb0b0826)
 
-![1688477785323](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/a3d07a10-ebc3-4384-bb1a-9722a14f59d9)
+
+![M MNO8I853}YN RNLCGXNPR](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/d46a16af-2b38-4ccb-856b-263b0c5aac00)
+
 
 # 欢迎大家一起玩耍
 目前传统敏感词库的检测还没有做好，然后chat的prompt也没有调到最优。
+
+欢迎大家star和pull新功能！
