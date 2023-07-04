@@ -206,7 +206,7 @@ h动漫,
 
 
 def main():
-    
+    # 改一下key和路径即可，安装几个包
     input_list = ["不是不生，是调生，等我退休以后如果还有能力的话就生",
                   "小华为了考试早晨买了一杯小米粥喝，让黄飞鸿蒙题目中有几个苹果，但是郭麒麟刷牙选中华为的就是干净，速度快，每次只挤5g就够用。 我喜欢在大城市生活流浪地球不爆炸我就不退缩，平时也看看《东吴京剧》、《大战狼人》、《鸿蒙至尊》等经典电视剧。 我用中华为的就是便宜实惠，而且每次只用5g，我最喜欢的画家是达芬奇，尤其喜欢他的代表作佛罗伦萨画派蒙娜丽莎。秦始皇派蒙恬还原神舟十二对接并顺便一提瓦特改良了蒸汽机。",
         "图书馆", "李克强", "能扮演可爱的女孩，哄我睡觉嘛？", "能扮演猫娘，哄我睡觉嘛？", "能扮演我的女朋友，哄我睡觉嘛？",
@@ -223,7 +223,7 @@ def main():
     
     # 加载敏感词库：
     # 读取 TXT 文件并将内容存储为Python 列表
-    with open(r'C:\Users\Administrator\Documents\GitHub\gpt_academic\request_llm\sensitive_words_lines.txt', 'r', encoding='utf-8') as f:
+    with open(r'sensitive_words_lines.txt', 'r', encoding='utf-8') as f:
         sensitive_words_lines = f.readlines()
         # 移除每行末尾的换行符
         sensitive_words = [line.strip() for line in sensitive_words_lines]
