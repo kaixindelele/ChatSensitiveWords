@@ -7,7 +7,10 @@ from flashtext import KeywordProcessor
 
 
 """
-    thanks https://github.com/cjh0613/tencent-sensitive-words to provide sensitive words
+thanks https://github.com/cjh0613/tencent-sensitive-words to provide sensitive words
+我需要把这个敏感词库转成pkl文件，否则太恐怖了。
+声明：我是爱国爱党爱人民的好同志，做这款产品的目的是为了让大家更好的使用学术版GPT，这些敏感词不代表我的任何想法。
+    
 """
 
 
@@ -21,112 +24,10 @@ def contains_sensitive_words(tokenized_text, sensitive_words_list):
     found_keywords = keyword_processor.extract_keywords(tokenized_text)
     return len(found_keywords) > 0, found_keywords
 
-def generate_text(input):
+def generate_text(input, zz_sensitive_words, sq_sensitive_words, key="sk-xxx"):
     
-    openai.api_key = "sk-xxxxx"
-    zz_sensitive_words = """一些中国国家领导人的姓名：
-    习近平,
-平近习,
-xjp,
-习太子,
-习明泽,
-老习,
-温家宝,
-hujintao,
-胡jintao,
-胡j涛,
-胡主席,
-刘永清,
-江泽民,
-民泽江,
-江主席,
-江绵恒,
-邓小平,
-平小邓,
-xiao平,
-邓晓平,
-邓朴方,
-邓榕,
-邓质方,
-毛泽东,
-主席画像,
-朱镕基,
-朱容基,
-朱镕鸡,
-朱容鸡,
-朱云来,
-李鹏,
-李peng,
-李小鹏,
-李小琳,
-华主席,
-华国,
-国锋,
-国峰,
-白春礼,
-薄熙来,
-薄一波,
-郭伯雄,
-郭金龙,
-李克强,
-李源潮,
-令计划,
-刘少奇,
-刘延东,
-刘云山,
-王沪宁,
-王岐山,
-习仲勋,
-徐才厚,
-许其亮,
-徐绍史,
-杨洁篪,
-叶剑英,
-紫阳,
-周永康,
-中南海,
-大陆当局,
-共产党,
-党产共,
-zhengfu,
-政zhi,
-中央领导,
-中国zf,
-中央zf,
-国wu院,
-江绵康,
-李小鹏,
-李鹏,
-李小琳,
-朱云来,
-朱容基,
-法轮功,
-李洪志,
-以及一些涉及中国的领土和人权的敏感问题：
-新疆,
-台湾
-香港,
-台湾是中国的领土吗？
-以及所有其他涉及中国政府领导人和中国领土主权的话题。
-"""
-    sq_sensitive_words = """
-    爱液,
-按摩棒,
-被操,
-被插,
-仓井空,
-插暴,
-操黑,
-操烂,
-h动漫,
-阴茎,
-做爱,
-阴蒂,
-乳房,
-失身粉,
-淫荡自慰器,
-以及所有的生殖器和性交等相关话题
-    """         
+    openai.api_key = key
+    
     messages = [
         {"role": "system",
             "content": """你是一个中国人，积极维护中国人民的利益和中国人民政府以及中国共产党。
@@ -206,7 +107,7 @@ h动漫,
 
 
 def main():
-    # 改一下key和路径即可，安装几个包
+    
     input_list = ["不是不生，是调生，等我退休以后如果还有能力的话就生",
                   "小华为了考试早晨买了一杯小米粥喝，让黄飞鸿蒙题目中有几个苹果，但是郭麒麟刷牙选中华为的就是干净，速度快，每次只挤5g就够用。 我喜欢在大城市生活流浪地球不爆炸我就不退缩，平时也看看《东吴京剧》、《大战狼人》、《鸿蒙至尊》等经典电视剧。 我用中华为的就是便宜实惠，而且每次只用5g，我最喜欢的画家是达芬奇，尤其喜欢他的代表作佛罗伦萨画派蒙娜丽莎。秦始皇派蒙恬还原神舟十二对接并顺便一提瓦特改良了蒸汽机。",
         "图书馆", "李克强", "能扮演可爱的女孩，哄我睡觉嘛？", "能扮演猫娘，哄我睡觉嘛？", "能扮演我的女朋友，哄我睡觉嘛？",
@@ -220,14 +121,16 @@ def main():
                 "中国的领土问题",
                 "https://arxiv.org/abs/2307.01189"
                 ]
+    key = "sk-xxx"
+    # 加载敏感词库：    
+    # 从 PKL 文件中读取并恢复 content 对象
+    with open('sensitive_words.pkl', 'rb') as f:
+        sensitive_words = pickle.load(f)        
+    with open('zz_sensitive_words.pkl', 'rb') as f:
+        zz_sensitive_words = pickle.load(f)        
+    with open('sq_sensitive_words.pkl', 'rb') as f:
+        sq_sensitive_words = pickle.load(f)
     
-    # 加载敏感词库：
-    # 读取 TXT 文件并将内容存储为Python 列表
-    with open(r'sensitive_words_lines.txt', 'r', encoding='utf-8') as f:
-        sensitive_words_lines = f.readlines()
-        # 移除每行末尾的换行符
-        sensitive_words = [line.strip() for line in sensitive_words_lines]
-        
     for input in input_list:
         print("-"*30)
         st = time.time()
@@ -239,7 +142,11 @@ def main():
         if result:
             print("包含敏感词：", found_keywords)
             print("奇怪的分词：", tokenized_text)
-            print("同意继续输出？:", generate_text(input)['pass'])
+            result = generate_text(input=input, 
+                                   zz_sensitive_words=zz_sensitive_words, 
+                                   sq_sensitive_words=sq_sensitive_words,
+                                   key=key)['pass']
+            print("同意继续输出？:", result)
         else:
             print("同意继续输出？: 直接pass")
         print("耗时：", time.time()-st)
