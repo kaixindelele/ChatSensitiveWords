@@ -1,0 +1,4 @@
+openai
+pickle
+jieba
+flashtext
