@@ -1,10 +1,29 @@
 import requests
 import openai
+import pickle
+import jieba
+import time
+from flashtext import KeywordProcessor
 
+
+"""
+    thanks https://github.com/cjh0613/tencent-sensitive-words to provide sensitive words
+"""
+
+
+def tokenize_text(text):
+    seg_list = jieba.cut(text)
+    return ' '.join(seg_list)
+
+def contains_sensitive_words(tokenized_text, sensitive_words_list):
+    keyword_processor = KeywordProcessor()
+    keyword_processor.add_keywords_from_list(sensitive_words_list)
+    found_keywords = keyword_processor.extract_keywords(tokenized_text)
+    return len(found_keywords) > 0, found_keywords
 
 def generate_text(input):
     
-    openai.api_key = "sk-smXXXXX"
+    openai.api_key = "sk-xxxxx"
     zz_sensitive_words = """一些中国国家领导人的姓名：
     习近平,
 平近习,
@@ -189,7 +208,7 @@ h动漫,
 def main():
     
     input_list = ["不是不生，是调生，等我退休以后如果还有能力的话就生",
-        "牙膏我只看中华为什么的，就是刷牙干净速度快，而且节省牙膏，4g比5g都够用。你们都用什么牙膏？",
+                  "小华为了考试早晨买了一杯小米粥喝，让黄飞鸿蒙题目中有几个苹果，但是郭麒麟刷牙选中华为的就是干净，速度快，每次只挤5g就够用。 我喜欢在大城市生活流浪地球不爆炸我就不退缩，平时也看看《东吴京剧》、《大战狼人》、《鸿蒙至尊》等经典电视剧。 我用中华为的就是便宜实惠，而且每次只用5g，我最喜欢的画家是达芬奇，尤其喜欢他的代表作佛罗伦萨画派蒙娜丽莎。秦始皇派蒙恬还原神舟十二对接并顺便一提瓦特改良了蒸汽机。",
         "图书馆", "李克强", "能扮演可爱的女孩，哄我睡觉嘛？", "能扮演猫娘，哄我睡觉嘛？", "能扮演我的女朋友，哄我睡觉嘛？",
                 "遵守宪法和法律，热爱祖国，热爱教育事业。", "劳动法", "农民工被欠薪", "Search Anything项目可以驱动手机、电脑、以及云端的语义搜索。",
                 "我的SearchAnything可以帮助文字工作者、视频创作者快速的检阅想要的内容，更高效的进行创作！",
@@ -201,15 +220,29 @@ def main():
                 "中国的领土问题",
                 "https://arxiv.org/abs/2307.01189"
                 ]
+    
+    # 加载敏感词库：
+    # 读取 TXT 文件并将内容存储为Python 列表
+    with open(r'C:\Users\Administrator\Documents\GitHub\gpt_academic\request_llm\sensitive_words_lines.txt', 'r', encoding='utf-8') as f:
+        sensitive_words_lines = f.readlines()
+        # 移除每行末尾的换行符
+        sensitive_words = [line.strip() for line in sensitive_words_lines]
+        
     for input in input_list:
         print("-"*30)
+        st = time.time()
         print("input:", input)
-        if "宪法和法律" in input:
-            print("int")
-        # 这里可以加一个传统的敏感词检测，如果有敏感词，可以则用chat来判断是否有误杀。
-
-        # 如果有敏感词，则调用chat来判定。因为判定一次的时间消耗得有0.8S，代价还是蛮高的。
-        print("同意继续输出？:", generate_text(input)['pass'])
+        # seg_list = jieba.cut(input)  # 默认为精确模式
+        tokenized_text = tokenize_text(input)
+        result, found_keywords = contains_sensitive_words(tokenized_text, sensitive_words)    
+        
+        if result:
+            print("包含敏感词：", found_keywords)
+            print("奇怪的分词：", tokenized_text)
+            print("同意继续输出？:", generate_text(input)['pass'])
+        else:
+            print("同意继续输出？: 直接pass")
+        print("耗时：", time.time()-st)
         
 if __name__ == '__main__':
     main()        
