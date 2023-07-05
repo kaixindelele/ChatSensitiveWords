@@ -17,6 +17,8 @@
 3. 确认敏感词库路径是否正确。
 
 # 初步效果：
+<details><summary><code><b>一些有意思的案例截图</b></code></summary>
+  
 ![GO5YV8RZ$$FOQ) 4 CEBHKG](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/1a05c2a1-8572-4744-aa12-6098bb0b0826)
 
 ![M MNO8I853}YN RNLCGXNPR](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/d46a16af-2b38-4ccb-856b-263b0c5aac00)
@@ -25,6 +27,7 @@
 
 ![7JU@}TJ 0)N8Z3{Z_63FE H](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/eefd58ff-44e9-439c-8d4b-fbbd9e0ac8e8)
 
+</details>
 
 # 时间消耗分析：
 无敏感词的情况，消耗0.2s左右
