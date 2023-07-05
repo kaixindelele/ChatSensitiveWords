@@ -39,4 +39,31 @@
 
 ![8F26{U54RLC EUL6(MNEZPA](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/1e87e11a-fbe2-4f7d-a754-ce8f596c0a4d)
 
-# 请不要打包卖钱，如果卖钱的话，分我点...
+## 请不要打包卖钱，如果卖钱的话，分我点...
+
+
+# Starchart
+
+[![Star History Chart](https://api.star-history.com/svg?repos=kaixindelele/ChatSensitiveWords&type=Date)](https://star-history.com/#kaixindelele/ChatSensitiveWords&Date)
+
+## Contributors
+
+<a href="https://github.com/kaixindelele/ChatSensitiveWords/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=kaixindelele/ChatSensitiveWords" />
+</a>
+
+
+## 项目引用：
+Please cite the repo if you use the data or code in this repo.
+
+```
+@misc{ChatPaper,
+  author={Yongle Luo},
+  title = {ChatSensitiveWords: Use LLM and sensitive word library to check sensitive input text.},
+  year = {2023},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/kaixindelele/ChatSensitiveWords}},
+}
+```
+
