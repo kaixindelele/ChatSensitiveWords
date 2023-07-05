@@ -19,8 +19,12 @@
 # 初步效果：
 ![GO5YV8RZ$$FOQ) 4 CEBHKG](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/1a05c2a1-8572-4744-aa12-6098bb0b0826)
 
-
 ![M MNO8I853}YN RNLCGXNPR](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/d46a16af-2b38-4ccb-856b-263b0c5aac00)
+
+![FA LNCEEAC(XT05JVAQUJ~4](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/23ca1586-3ed1-418d-8093-20999e9c6c03)
+
+![7JU@}TJ 0)N8Z3{Z_63FE H](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/eefd58ff-44e9-439c-8d4b-fbbd9e0ac8e8)
+
 
 # 时间消耗分析：
 无敏感词的情况，消耗0.2s左右
@@ -39,4 +43,31 @@
 
 ![8F26{U54RLC EUL6(MNEZPA](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/1e87e11a-fbe2-4f7d-a754-ce8f596c0a4d)
 
-# 请不要打包卖钱，如果卖钱的话，分我点...
+## 请不要打包卖钱，如果卖钱的话，分我点...
+
+
+# Starchart
+
+[![Star History Chart](https://api.star-history.com/svg?repos=kaixindelele/ChatSensitiveWords&type=Date)](https://star-history.com/#kaixindelele/ChatSensitiveWords&Date)
+
+## Contributors
+
+<a href="https://github.com/kaixindelele/ChatSensitiveWords/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=kaixindelele/ChatSensitiveWords" />
+</a>
+
+
+## 项目引用：
+Please cite the repo if you use the data or code in this repo.
+
+```
+@misc{ChatPaper,
+  author={Yongle Luo},
+  title = {ChatSensitiveWords: Use LLM and sensitive word library to check sensitive input text.},
+  year = {2023},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/kaixindelele/ChatSensitiveWords}},
+}
+```
+
