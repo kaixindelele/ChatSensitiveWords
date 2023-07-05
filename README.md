@@ -1,5 +1,5 @@
 # ChatSensitiveWords
-利用LLM来自动判别是否涉及敏感词。可以结合敏感词库和向量数据。
+利用LLM+敏感词库，来自动判别是否涉及敏感词。
 
 # Motivation：
 在[chatpaper](https://chatwithpaper.org)中，我们免费提供了[学术版GPT](https://github.com/binary-husky/gpt_academic)完整功能，这里面有一个隐藏的对话功能，我们希望给大家提供一个学术对话接口，但防不住大家好奇，或者有极少数人故意攻击我们的输出。
