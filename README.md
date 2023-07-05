@@ -22,6 +22,13 @@
 
 ![M MNO8I853}YN RNLCGXNPR](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/d46a16af-2b38-4ccb-856b-263b0c5aac00)
 
+# 时间消耗分析：
+无敏感词的情况，消耗0.2s左右
+
+有敏感词，消耗0.2+0.8s左右。
+
+欢迎大家在本地测试和评估。
+**千万别在我们的学术版上测试！**
 
 # 欢迎大家一起玩耍
 目前传统敏感词库的检测还没有做好，然后chat的prompt也没有调到最优。
