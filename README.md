@@ -1,5 +1,5 @@
 # ChatSensitiveWords
-利用LLM+敏感词库，来自动判别是否涉及敏感词。
+利用LLM+敏感词库，来自动判别是否涉及敏感词。已经在[chatpaper](https://chatwithpaper.org)上线！
 
 # Motivation：
 在[chatpaper](https://chatwithpaper.org)中，我们免费提供了[学术版GPT](https://github.com/binary-husky/gpt_academic)完整功能，这里面有一个隐藏的对话功能，我们希望给大家提供一个学术对话接口，但防不住大家好奇，或者有极少数人故意攻击我们的输出。
@@ -27,3 +27,9 @@
 目前传统敏感词库的检测还没有做好，然后chat的prompt也没有调到最优。
 
 欢迎大家star和pull新功能！
+
+# 如果对搭网站的朋友有帮助的话，也欢迎打赏, 感谢认可！
+
+![8F26{U54RLC EUL6(MNEZPA](https://github.com/kaixindelele/ChatSensitiveWords/assets/28528386/1e87e11a-fbe2-4f7d-a754-ce8f596c0a4d)
+
+# 请不要打包卖钱，如果卖钱的话，分我点...
